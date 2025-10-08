@@ -160,17 +160,7 @@ Si no se cumple: **el cliente usa Supabase REST/RPC directo**.
 
 ---
 
-## 10) Roadmap inmediato (con control)
-
-1. **Congelar snapshot** actual (`schema.sql`) → commit.
-2. Agregar `docs/frontend-contract.md` con payloads de ejemplo de RPC.
-3. (Opcional) `seed.sql` con catálogos mínimos (currencies, account\_types, templates).
-4. Proteger repo: `CODEOWNERS` (owner), PR template DB.
-5. Crear repos vacíos: `moni-app` (frontend), `moni-agent` (automations/wa bot), sin tocar DB.
-
----
-
-## 11) Apéndice — Cómo leer `schema.sql`
+## 10) Apéndice — Cómo leer `schema.sql`
 
 - ``: estructura, constraints, `COMMENT ON`.
 - ``: RPC/validaciones, mirar `SECURITY DEFINER`.
@@ -179,6 +169,4 @@ Si no se cumple: **el cliente usa Supabase REST/RPC directo**.
 - ``: performance por `user_id`, `posted_at`, etc.
 
 ---
-
-> Si necesitás, armamos también una **plantilla ADR** para propuestas de arquitectura y un `.cursorrules` mínimo para que cualquier agente respete el contrato.
 
