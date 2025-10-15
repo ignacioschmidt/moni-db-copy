@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moni - Demo Frontend</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-slate-50">
+    <!-- Sidebar -->
+    <aside class="fixed left-0 top-0 z-40 h-screen w-64 bg-white border-r border-slate-200">
+        <div class="flex h-full flex-col">
+            <div class="flex h-16 items-center border-b border-slate-200 px-6">
+                <h1 class="text-2xl font-bold">Moni</h1>
+            </div>
+            <nav class="flex-1 space-y-1 p-4">
+                <a href="#dashboard" class="flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium bg-slate-100 text-slate-900" onclick="showPage('dashboard')">
+                    <i data-lucide="layout-dashboard" class="h-5 w-5"></i>
+                    Resumen
+                </a>
+                <a href="#accounts" class="flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50" onclick="showPage('accounts')">
+                    <i data-lucide="wallet" class="h-5 w-5"></i>
+                    Cuentas
+                </a>
+                <a href="#transactions" class="flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50" onclick="showPage('transactions')">
+                    <i data-lucide="arrow-left-right" class="h-5 w-5"></i>
+                    Transacciones
+                </a>
+                <a href="#categories" class="flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50" onclick="showPage('categories')">
+                    <i data-lucide="tags" class="h-5 w-5"></i>
+                    Categorías
+                </a>
+                <a href="#analytics" class="flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50" onclick="showPage('analytics')">
+                    <i data-lucide="pie-chart" class="h-5 w-5"></i>
+                    Análisis
+                </a>
+            </nav>
+            <div class="border-t border-slate-200 p-4">
+                <div class="mb-3 px-3">
+                    <p class="text-sm text-slate-600 truncate">demo@moni.app</p>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="pl-64">
+        <div class="container mx-auto p-6">
+            <!-- Dashboard Page -->
+            <div id="dashboard-page" class="page">
+                <div class="space-y-6">
+                    <div>
+                        <h1 class="text-3xl font-bold tracking-tight">Resumen</h1>
+                        <p class="text-slate-600 mt-1">Vista general de tus finanzas</p>
+                    </div>
+
+                    <div class="grid gap-4 md:grid-cols-3">
+                        <div class="bg-white rounded-lg border border-slate-200 p-6">
+                            <div class="flex items-center justify-between mb-2">
+                                <div class="text-sm font-medium text-slate-600">Total de Cuentas</div>
+                                <i data-lucide="wallet" class="h-4 w-4 text-slate-600"></i>
+                            </div>
+                            <div class="text-2xl font-bold">3</div>
+                        </div>
+                        <div class="bg-white rounded-lg border border-slate-200 p-6">
+                            <div class="flex items-center justify-between mb-2">
+                                <div class="text-sm font-medium text-slate-600">Total en ARS</div>
+                                <i data-lucide="dollar-sign" class="h-4 w-4 text-slate-600"></i>
+                            </div>
+                            <div class="text-2xl font-bold text-green-600">$175,000</div>
+                        </div>
+                        <div class="bg-white rounded-lg border border-slate-200 p-6">
+                            <div class="flex items-center justify-between mb-2">
+                                <div class="text-sm font-medium text-slate-600">Total en USD</div>
+                                <i data-lucide="dollar-sign" class="h-4 w-4 text-slate-600"></i>
+                            </div>
+                            <div class="text-2xl font-bold text-green-600">US$500</div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg border border-slate-200">
+                        <div class="border-b border-slate-200 p-6">
+                            <h3 class="text-lg font-semibold">Cuentas</h3>
+                        </div>
+                        <div class="p-6 space-y-3">
+                            <div class="flex items-center justify-between p-3 rounded-lg border border-slate-200">
+                                <div>
+                                    <p class="font-medium">Cuenta Corriente</p>
+                                    <p class="text-sm text-slate-600">ARS</p>
+                                </div>
+                                <div class="text-right">
+                                    <p class="font-semibold">$150,000</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between p-3 rounded-lg border border-slate-200">
+                                <div>
+                                    <p class="font-medium">Cuenta USD</p>
+                                    <p class="text-sm text-slate-600">USD</p>
+                                </div>
+                                <div class="text-right">
+                                    <p class="font-semibold">US$500</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between p-3 rounded-lg border border-slate-200">
+                                <div>
+                                    <p class="font-medium">Mercado Pago</p>
+                                    <p class="text-sm text-slate-600">ARS</p>
+                                </div>
+                                <div class="text-right">
+                                    <p class="font-semibold">$25,000</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Accounts Page -->
+            <div id="accounts-page" class="page hidden">
+                <div class="space-y-6">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h1 class="text-3xl font-bold tracking-tight">Cuentas</h1>
+                            <p class="text-slate-600 mt-1">Gestiona tus cuentas bancarias, billeteras y más</p>
+                        </div>
+                        <button class="bg-slate-900 text-white px-4 py-2 rounded-lg hover:bg-slate-800 flex items-center gap-2">
+                            <i data-lucide="plus" class="h-4 w-4"></i>
+                            Nueva Cuenta
+                        </button>
+                    </div>
+
+                    <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+                        <div class="bg-white rounded-lg border border-slate-200">
+                            <div class="border-b border-slate-200 p-4 flex items-center justify-between">
+                                <h3 class="text-lg font-semibold">Cuenta Corriente</h3>
+                                <button class="text-red-600 hover:text-red-700">
+                                    <i data-lucide="trash-2" class="h-4 w-4"></i>
+                                </button>
+                            </div>
+                            <div class="p-4 space-y-1 text-sm">
+                                <p class="text-slate-600"><span class="font-medium">Moneda:</span> ARS</p>
+                                <p class="text-slate-600"><span class="font-medium">Tipo:</span> checking</p>
+                                <p class="text-slate-600"><span class="font-medium">Institución:</span> Banco Galicia</p>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-lg border border-slate-200">
+                            <div class="border-b border-slate-200 p-4 flex items-center justify-between">
+                                <h3 class="text-lg font-semibold">Cuenta USD</h3>
+                                <button class="text-red-600 hover:text-red-700">
+                                    <i data-lucide="trash-2" class="h-4 w-4"></i>
+                                </button>
+                            </div>
+                            <div class="p-4 space-y-1 text-sm">
+                                <p class="text-slate-600"><span class="font-medium">Moneda:</span> USD</p>
+                                <p class="text-slate-600"><span class="font-medium">Tipo:</span> savings</p>
+                                <p class="text-slate-600"><span class="font-medium">Institución:</span> Banco Galicia</p>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-lg border border-slate-200">
+                            <div class="border-b border-slate-200 p-4 flex items-center justify-between">
+                                <h3 class="text-lg font-semibold">Mercado Pago</h3>
+                                <button class="text-red-600 hover:text-red-700">
+                                    <i data-lucide="trash-2" class="h-4 w-4"></i>
+                                </button>
+                            </div>
+                            <div class="p-4 space-y-1 text-sm">
+                                <p class="text-slate-600"><span class="font-medium">Moneda:</span> ARS</p>
+                                <p class="text-slate-600"><span class="font-medium">Tipo:</span> wallet</p>
+                                <p class="text-slate-600"><span class="font-medium">Institución:</span> Mercado Pago</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Transactions Page -->
+            <div id="transactions-page" class="page hidden">
+                <div class="space-y-6">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h1 class="text-3xl font-bold tracking-tight">Transacciones</h1>
+                            <p class="text-slate-600 mt-1">Registra ingresos, gastos y transferencias</p>
+                        </div>
+                        <button class="bg-slate-900 text-white px-4 py-2 rounded-lg hover:bg-slate-800 flex items-center gap-2">
+                            <i data-lucide="plus" class="h-4 w-4"></i>
+                            Nueva Transacción
+                        </button>
+                    </div>
+
+                    <div class="bg-white rounded-lg border border-slate-200">
+                        <div class="border-b border-slate-200 p-6">
+                            <h3 class="text-lg font-semibold">Últimos Movimientos</h3>
+                        </div>
+                        <div class="p-6 space-y-2">
+                            <div class="flex items-center justify-between p-3 rounded-lg border border-slate-200">
+                                <div class="flex items-center gap-3">
+                                    <div class="p-2 rounded-full bg-red-100">
+                                        <i data-lucide="trending-down" class="h-4 w-4 text-red-600"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-medium">Supermercado Coto</p>
+                                        <p class="text-sm text-slate-600">Cuenta Corriente • 14/10/2025</p>
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                    <p class="font-semibold text-red-600">-$15,000.00</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between p-3 rounded-lg border border-slate-200">
+                                <div class="flex items-center gap-3">
+                                    <div class="p-2 rounded-full bg-green-100">
+                                        <i data-lucide="trending-up" class="h-4 w-4 text-green-600"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-medium">Sueldo Octubre</p>
+                                        <p class="text-sm text-slate-600">Cuenta Corriente • 13/10/2025</p>
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                    <p class="font-semibold text-green-600">+$200,000.00</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between p-3 rounded-lg border border-slate-200">
+                                <div class="flex items-center gap-3">
+                                    <div class="p-2 rounded-full bg-red-100">
+                                        <i data-lucide="trending-down" class="h-4 w-4 text-red-600"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-medium">Uber</p>
+                                        <p class="text-sm text-slate-600">Mercado Pago • 12/10/2025</p>
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                    <p class="font-semibold text-red-600">-$3,500.00</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between p-3 rounded-lg border border-slate-200">
+                                <div class="flex items-center gap-3">
+                                    <div class="p-2 rounded-full bg-red-100">
+                                        <i data-lucide="trending-down" class="h-4 w-4 text-red-600"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-medium">Alquiler</p>
+                                        <p class="text-sm text-slate-600">Cuenta Corriente • 11/10/2025</p>
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                    <p class="font-semibold text-red-600">-$80,000.00</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Categories Page -->
+            <div id="categories-page" class="page hidden">
+                <div class="space-y-6">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h1 class="text-3xl font-bold tracking-tight">Categorías</h1>
+                            <p class="text-slate-600 mt-1">Organiza tus ingresos y gastos</p>
+                        </div>
+                        <div class="flex gap-2">
+                            <button class="bg-white border border-slate-200 text-slate-900 px-4 py-2 rounded-lg hover:bg-slate-50 flex items-center gap-2">
+                                <i data-lucide="plus" class="h-4 w-4"></i>
+                                Nuevo Grupo
+                            </button>
+                            <button class="bg-slate-900 text-white px-4 py-2 rounded-lg hover:bg-slate-800 flex items-center gap-2">
+                                <i data-lucide="plus" class="h-4 w-4"></i>
+                                Nueva Categoría
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="bg-white rounded-lg border border-slate-200">
+                            <div class="border-b border-slate-200 p-4 flex items-center justify-between">
+                                <div class="flex items-center gap-2">
+                                    <h3 class="text-lg font-semibold">Alimentación</h3>
+                                    <span class="px-2 py-1 text-xs rounded-md border border-slate-200">Gasto</span>
+                                </div>
+                                <button class="text-red-600 hover:text-red-700">
+                                    <i data-lucide="trash-2" class="h-4 w-4"></i>
+                                </button>
+                            </div>
+                            <div class="p-4">
+                                <div class="flex flex-wrap gap-2">
+                                    <div class="flex items-center gap-2 px-3 py-1.5 rounded-md bg-slate-100 text-sm">
+                                        <span>Supermercado</span>
+                                        <button class="text-slate-500 hover:text-red-600">×</button>
+                                    </div>
+                                    <div class="flex items-center gap-2 px-3 py-1.5 rounded-md bg-slate-100 text-sm">
+                                        <span>Restaurantes</span>
+                                        <button class="text-slate-500 hover:text-red-600">×</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-lg border border-slate-200">
+                            <div class="border-b border-slate-200 p-4 flex items-center justify-between">
+                                <div class="flex items-center gap-2">
+                                    <h3 class="text-lg font-semibold">Transporte</h3>
+                                    <span class="px-2 py-1 text-xs rounded-md border border-slate-200">Gasto</span>
+                                </div>
+                                <button class="text-red-600 hover:text-red-700">
+                                    <i data-lucide="trash-2" class="h-4 w-4"></i>
+                                </button>
+                            </div>
+                            <div class="p-4">
+                                <div class="flex flex-wrap gap-2">
+                                    <div class="flex items-center gap-2 px-3 py-1.5 rounded-md bg-slate-100 text-sm">
+                                        <span>Combustible</span>
+                                        <button class="text-slate-500 hover:text-red-600">×</button>
+                                    </div>
+                                    <div class="flex items-center gap-2 px-3 py-1.5 rounded-md bg-slate-100 text-sm">
+                                        <span>Transporte Público</span>
+                                        <button class="text-slate-500 hover:text-red-600">×</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Analytics Page -->
+            <div id="analytics-page" class="page hidden">
+                <div class="space-y-6">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h1 class="text-3xl font-bold tracking-tight">Análisis</h1>
+                            <p class="text-slate-600 mt-1">Visualiza tus patrones financieros</p>
+                        </div>
+                    </div>
+
+                    <div class="grid gap-4 md:grid-cols-3">
+                        <div class="bg-white rounded-lg border border-slate-200 p-6">
+                            <div class="text-sm font-medium text-slate-600 mb-2">Ingresos Totales</div>
+                            <div class="text-2xl font-bold text-green-600">$200,000.00</div>
+                        </div>
+                        <div class="bg-white rounded-lg border border-slate-200 p-6">
+                            <div class="text-sm font-medium text-slate-600 mb-2">Gastos Totales</div>
+                            <div class="text-2xl font-bold text-red-600">$115,500.00</div>
+                        </div>
+                        <div class="bg-white rounded-lg border border-slate-200 p-6">
+                            <div class="text-sm font-medium text-slate-600 mb-2">Balance</div>
+                            <div class="text-2xl font-bold text-green-600">$84,500.00</div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg border border-slate-200">
+                        <div class="border-b border-slate-200 p-6">
+                            <h3 class="text-lg font-semibold">Detalle de Categorías</h3>
+                        </div>
+                        <div class="p-6 space-y-3">
+                            <div class="flex items-center justify-between p-3 rounded-lg border border-slate-200">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-4 h-4 rounded-full bg-blue-500"></div>
+                                    <span class="font-medium">Alquiler</span>
+                                </div>
+                                <div class="flex items-center gap-4">
+                                    <span class="text-sm text-slate-600">69.3%</span>
+                                    <span class="font-semibold">$80,000.00</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between p-3 rounded-lg border border-slate-200">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-4 h-4 rounded-full bg-red-500"></div>
+                                    <span class="font-medium">Supermercado</span>
+                                </div>
+                                <div class="flex items-center gap-4">
+                                    <span class="text-sm text-slate-600">13.0%</span>
+                                    <span class="font-semibold">$15,000.00</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between p-3 rounded-lg border border-slate-200">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-4 h-4 rounded-full bg-green-500"></div>
+                                    <span class="font-medium">Restaurant</span>
+                                </div>
+                                <div class="flex items-center gap-4">
+                                    <span class="text-sm text-slate-600">10.4%</span>
+                                    <span class="font-semibold">$12,000.00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        lucide.createIcons();
+
+        function showPage(pageName) {
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.add('hidden');
+            });
+            document.getElementById(pageName + '-page').classList.remove('hidden');
+
+            document.querySelectorAll('nav a').forEach(link => {
+                link.classList.remove('bg-slate-100', 'text-slate-900');
+                link.classList.add('text-slate-600', 'hover:bg-slate-50');
+            });
+            event.currentTarget.classList.add('bg-slate-100', 'text-slate-900');
+            event.currentTarget.classList.remove('text-slate-600', 'hover:bg-slate-50');
+        }
+    </script>
+</body>
+</html>
